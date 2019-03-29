@@ -7,6 +7,7 @@
 //
 
 import Foundation
+import TTCPay
 
 @objc public class TTCSDKError: NSObject {
     /// Error number
@@ -57,6 +58,7 @@ import Foundation
     }
 }
 
+// MARK: - Initialize
 public class TTCSDK: NSObject {
 
     /// Initialize SDK
@@ -64,8 +66,12 @@ public class TTCSDK: NSObject {
     /// - Parameters:
     /// - appId: AppId assigned by the TTC platform, cannot be nil
     /// - secretKey: The SecretKey assigned by the TTC platform cannot be nil
+    /// - scheme: Use the scheme, wallet jump dapp, scheme default is empty, if it is empty, it will not jump.
+    /// - environment: set environment 1 - development 2 - production default=2
     /// - result:
-    @objc public static func register(appId: String, secretKey: String, result: ((Bool, TTCSDKError?) -> Void )? ) {
+    @objc public static func register(appId: String, secretKey: String, environment: Int = 2, result: ((Bool, TTCSDKError?) -> Void )? ) {
+        
+        setEnvironment(environment: environment)
         
         if !TTCManager.shared.SDKEnabled {
             result?(false, TTCSDKError(type: .SDKDisable))
@@ -99,9 +105,22 @@ public class TTCSDK: NSObject {
         
         TTCManager.shared.logEnable = isEnabled
     }
+    
+    /// set environment
+    /// 1 - development 2 - production
+    static func setEnvironment(environment: Int = 2) {
+        
+        if environment == 2 {
+            ttcServer = TTCServer(apiURL: "http://sdk.ttcnet.io/", actionURL: "http://test.ttcnet.io/", TTCURL: "http://ttcnet.io/")
+        } else {
+            ttcServer = TTCServer(apiURL: "http://sdk-ft.ttcnet.io/", actionURL: "http://test.ttcnet.io/", TTCURL: "http://test.ttcnet.io/")
+        }
+        
+        TTCPay.setEnvironment(environment: environment)
+    }
 }
 
-// MARK: - - user
+// MARK: - User
 extension TTCSDK {
 
     /// login with userid

@@ -7,6 +7,7 @@
 //
 
 import Foundation
+import AdSupport
 
 extension String {
     var drop0x: String {
@@ -19,6 +20,31 @@ extension String {
 
     var add0x: String {
         return "0x" + self
+    }
+    
+    var isHex: Bool {
+        
+        if self.hasPrefix("t") {
+            return true
+        } else if self.hasPrefix("0x") {
+            return true
+        }
+        
+        return false
+    }
+    
+    var withOutHex: String {
+        
+        if isHex {
+            return String(self.dropFirst(2))
+        }
+        
+        return self
+    }
+    
+    var to0x: String {
+        
+        return "0x" + self.withOutHex
     }
 }
 
@@ -61,5 +87,9 @@ extension String {
         let options: NSStringDrawingOptions = [.truncatesLastVisibleLine, .usesLineFragmentOrigin, .usesFontLeading]
         let stringSize = self.boundingRect(with: size, options: options, attributes: dict, context: nil).size
         return CGFloat(ceilf(Float(stringSize.height)))
+    }
+    
+    static func getUUID() -> String {
+        return ASIdentifierManager.shared().advertisingIdentifier.uuidString
     }
 }

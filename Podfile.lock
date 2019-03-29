@@ -1,9 +1,9 @@
 PODS:
-  - APIKit (3.2.1):
-    - Result (~> 3.0)
+  - Alamofire (4.8.2)
   - BigInt (3.1.0):
     - SipHash (~> 1.2)
-  - CryptoSwift (0.11.0)
+  - CryptoSwift (0.12.0)
+  - Google-Mobile-Ads-SDK (7.37.0)
   - JSONRPCKit (3.0.0):
     - Result (~> 3.2.0)
   - Realm (3.7.5):
@@ -13,53 +13,66 @@ PODS:
     - Realm (= 3.7.5)
   - Result (3.2.4)
   - SipHash (1.2.2)
-  - SwiftLint (0.26.0)
+  - SnapKit (4.2.0)
+  - SwiftLint (0.28.1)
   - SwiftProtobuf (1.0.3)
-  - TrezorCrypto (0.0.6)
+  - SwiftyRSA (1.5.0):
+    - SwiftyRSA/ObjC (= 1.5.0)
+  - SwiftyRSA/ObjC (1.5.0)
+  - TrezorCrypto (0.0.9)
   - TrustCore (0.0.7):
     - BigInt
     - TrezorCrypto
 
 DEPENDENCIES:
-  - APIKit
+  - Alamofire
   - BigInt (~> 3.0)
-  - CryptoSwift
+  - CryptoSwift (= 0.12.0)
+  - Google-Mobile-Ads-SDK (= 7.37.0)
   - JSONRPCKit
   - RealmSwift (= 3.7.5)
-  - SwiftLint (= 0.26.0)
+  - SnapKit
+  - SwiftLint (= 0.28.1)
   - SwiftProtobuf (= 1.0.3)
-  - TrezorCrypto (= 0.0.6)
+  - SwiftyRSA
+  - TrezorCrypto (= 0.0.9)
   - TrustCore (~> 0.0.7)
 
 SPEC REPOS:
   https://github.com/cocoapods/specs.git:
-    - APIKit
+    - Alamofire
     - BigInt
     - CryptoSwift
+    - Google-Mobile-Ads-SDK
     - JSONRPCKit
     - Realm
     - RealmSwift
     - Result
     - SipHash
+    - SnapKit
     - SwiftLint
     - SwiftProtobuf
+    - SwiftyRSA
     - TrezorCrypto
     - TrustCore
 
 SPEC CHECKSUMS:
-  APIKit: a39ff72ac44efc15513fd1b98800f63c525be61b
+  Alamofire: ae5c501addb7afdbb13687d7f2f722c78734c2d3
   BigInt: 76b5dfdfa3e2e478d4ffdf161aeede5502e2742f
-  CryptoSwift: ad5208dd2aae0a764ea4ce2c2d34bd067cae67f0
+  CryptoSwift: 1c07ca50843dd48bc54e6ea53d7a4dba3b645716
+  Google-Mobile-Ads-SDK: d028682d7450749a1955679da050eaf70d997b3e
   JSONRPCKit: 50e0dc5e7f873e87f81562feb8836b7d1974da6d
   Realm: c286caf4dbf346ce24aad49ca76c7ce622d4a082
   RealmSwift: 2a9281e37d6de55f66f76254d49d28aeb1b729e4
   Result: d2d07204ce72856f1fd9130bbe42c35a7b0fea10
   SipHash: fad90a4683e420c52ef28063063dbbce248ea6d4
-  SwiftLint: f6b83e8d95ee1e91e11932d843af4fdcbf3fc764
+  SnapKit: fe8a619752f3f27075cc9a90244d75c6c3f27e2a
+  SwiftLint: 7f5f7de0da74a649b16616cb5246ae323489656e
   SwiftProtobuf: 5ccc0e4054e37c75800e5744acb2aa80bb72b39c
-  TrezorCrypto: bea2dab002f9a5fe885df004694b9ece52dc088b
+  SwiftyRSA: 6e528fb1b1a87d5111c48081083b141d6d65f1cf
+  TrezorCrypto: bfeea47a052dca2c77d4a39e1e183865e52de14d
   TrustCore: 688df9a241008cf9cfa3842ec8ef28777a8b7534
 
-PODFILE CHECKSUM: bfd35383800e59de7c42b7c5b7e033ee3e852015
+PODFILE CHECKSUM: dc3f45858c9171d85a7e1c5bf8076bf2309e1b70
 
-COCOAPODS: 1.5.3
+COCOAPODS: 1.6.0.beta.2

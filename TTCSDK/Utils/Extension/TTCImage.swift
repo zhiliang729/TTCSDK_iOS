@@ -8,11 +8,21 @@
 
 import Foundation
 
-let SDLBundle = Bundle(url: Bundle.main.url(forResource: "TTCSDKBundle", withExtension: "bundle")!)!
-
 extension UIImage {
 
     static func TTCImg(name: String) -> UIImage? {
-        return UIImage(named: name, in: SDLBundle, compatibleWith: nil)
+        if let bundle = UIImage.getBundle(),
+            let img = UIImage(named: name, in: bundle, compatibleWith: nil) {
+            return img
+        }
+        return UIImage()
+    }
+    
+    static func getBundle() -> Bundle? {
+        if let path = Bundle(for: TTCSDK.self).path(forResource: "TTCSDKBundle", ofType: "bundle") {
+            return Bundle(path: path)
+        }
+        
+        return nil
     }
 }
